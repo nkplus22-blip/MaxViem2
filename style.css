@@ -1,0 +1,42 @@
+/* Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; }
+
+/* Hero */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('https://images.pexels.com/photos/4009401/pexels-photo-4009401.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=1080&w=1920') center/cover no-repeat;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; color: white;
+}
+.hero .overlay {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(179,0,0,0.55);
+}
+.hero-content { position: relative; z-index: 1; padding: 20px; }
+.hero .logo { max-width: 200px; margin-bottom: 20px; }
+.hero h1 { font-size: 3rem; margin-bottom: 10px; }
+.hero p { font-size: 1.3rem; margin-bottom: 20px; }
+
+.cta-buttons { display: flex; gap: 15px; justify-content: center; }
+.btn {
+  background: #b30000; color: #fff; padding: 10px 20px;
+  text-decoration: none; border-radius: 8px;
+  transition: background 0.3s;
+}
+.btn:hover { background: #ff1a1a; }
+.icon { font-size: 1.7rem; color: white; }
+
+/* Movies */
+.movies { padding: 50px 20px; background: #fff5f5; text-align: center; }
+.movies h2 { margin-bottom: 30px; font-size: 2rem; color: #b30000; }
+.movie-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; }
+.movie img { width: 100%; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+.movie p { margin-top: 10px; font-weight: bold; color: #b30000; }
+
+/* Testimonials */
+.testimonials { padding: 50px 20px; text-align: center; background: white; }
+.testimonials h2 { margin-bottom: 20px; color: #b30000; }
+.swiper { width: 80%; margin: auto; }
+.swiper-slide { padding: 30px; font-size: 1.1rem; background: #ffe6e6; border-radius: 10px; }
