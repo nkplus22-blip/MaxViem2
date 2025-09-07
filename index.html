@@ -1,220 +1,149 @@
 <!DOCTYPE html>
-<html lang="bs">
+<html lang="hr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MaxViem Paket</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #fff5f5 url('https://www.transparenttextures.com/patterns/cubes.png');
-      color: #333;
-      position: relative;
-      overflow-x: hidden;
-    }
-    #particles-js {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-    header {
-      background: #b30000;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-      position: relative;
-    }
-    .menu-toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 28px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      color: #fff;
-    }
-    .overlay {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      background-color: rgba(179, 0, 0, 0.95);
-      overflow-x: hidden;
-      transition: 0.4s;
-      padding-top: 60px;
-    }
-    .overlay a {
-      display: block;
-      text-decoration: none;
-      font-size: 1.5em;
-      color: #fff;
-      padding: 15px;
-      text-align: center;
-      transition: 0.3s;
-    }
-    .overlay a:hover {
-      background: #ff1a1a;
-    }
-    .overlay .closebtn {
-      position: absolute;
-      top: 15px;
-      right: 30px;
-      font-size: 40px;
-      color: #fff;
-      cursor: pointer;
-    }
-    .hero {
-      background: #ffe6e6;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    .hero h1 {
-      font-size: 2.5em;
-      color: #b30000;
-    }
-    .hero p {
-      font-size: 1.2em;
-      margin-top: 10px;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    section h2 {
-      color: #b30000;
-      font-size: 1.8em;
-      margin-bottom: 15px;
-    }
-    .btn {
-      background: #b30000;
-      color: #fff;
-      padding: 12px 25px;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 1.1em;
-      display: inline-block;
-      margin-top: 15px;
-    }
-    .btn:hover {
-      background: #ff1a1a;
-    }
-    footer {
-      background: #b30000;
-      color: #fff;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
-    footer a {
-      color: #ffcc00;
-      text-decoration: none;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MaxViem - Početna</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- particles.js pozadina -->
-  <div id="particles-js"></div>
+<!-- Particle Background -->
+<div id="particles-js"></div>
 
-  <header>
-    <h1>MaxViem Paket</h1>
-    <button class="menu-toggle" onclick="openNav()">☰</button>
-  </header>
+<header>
+    <a href="#" class="logo">MaxViem</a>
+    <div class="hamburger" id="hamburger">
+        <div></div><div></div><div></div>
+    </div>
+    <nav id="nav">
+        <a href="#cijene">Cijene</a>
+        <a href="#akcije">Akcije</a>
+        <a href="#o-nama">O nama</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="#placanje">Plaćanje</a>
+        <a href="#tim">Postani dio tima</a>
+        <a href="#komentari">Komentari</a>
+    </nav>
+</header>
 
-  <!-- overlay meni -->
-  <div id="myNav" class="overlay">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <a href="index.html">Početna</a>
-    <a href="cjenovnik.html">Cijene i akcije</a>
-    <a href="top15.html">Top 15</a>
-    <a href="komentari.html">Komentari</a>
-    <a href="tim.html">Postani dio tima</a>
-    <a href="onama.html">O nama</a>
-    <a href="kontakt.html">Kontakt</a>
-    <a href="placanje.html">Plaćanje</a>
-    <a href="kakodagledas.html">Kako da gledaš</a>
-    <a href="aplikacija.html">Naša aplikacija</a>
-  </div>
+<main>
+    <section class="hero">
+        <h1>Dobrodošli u MaxViem</h1>
+        <p>Najbolja IPTV platforma sa preko 50.000 videotekh i tisućama live kanala.</p>
+        <a href="https://wa.me/381694007480" class="btn">Kontakt WhatsApp</a>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1>Dobrodošli u MaxViem Paket</h1>
-    <p>Najbolji izbor IPTV televizije za cijelu porodicu.</p>
-  </section>
+        <div class="counters">
+            <div class="counter"><span id="users">0</span>Korisnika</div>
+            <div class="counter"><span id="years">0</span>Godina rada</div>
+            <div class="counter"><span id="videos">0</span>Videoteka</div>
+        </div>
+    </section>
 
-  <!-- Opis internet televizije -->
-  <section>
-    <h2>Šta je internet televizija?</h2>
-    <p>
-      Internet televizija (IPTV) omogućava gledanje TV kanala putem interneta, bez potrebe za klasičnim kablovskim ili satelitskim prijemnikom. 
-      Sve što vam je potrebno jeste internet konekcija i uređaj poput Smart TV-a, računara, TV Box-a, mobilnog telefona ili tableta.
-    </p>
-    <p>
-      Prednosti IPTV usluge su brojne: gledanje kanala bilo gdje u svijetu, kvalitetna HD i 4K slika, veliki izbor domaćih i stranih kanala, kao i mogućnost gledanja na više uređaja.
-      Sve više ljudi prelazi na internet televiziju jer nudi fleksibilnost i bolju cijenu u poređenju sa tradicionalnim operaterima.
-    </p>
-  </section>
+    <!-- Cijene -->
+    <section id="cijene">
+        <h2>Cijene</h2>
+        <div class="price-cards">
+            <div class="card">
+                <h3>Basic Paket</h3>
+                <p>7€ / mjesec</p>
+                <p>750 kanala i 9.500 videoteka</p>
+            </div>
+            <div class="card">
+                <h3>Medium Paket</h3>
+                <p>10€ / mjesec</p>
+                <p>1350 kanala i 21.000 videoteka, ažuriranje svakih 60 dana</p>
+            </div>
+            <div class="card">
+                <h3>Pro Paket</h3>
+                <p>13€ / mjesec</p>
+                <p>2300 live kanala, 50.000+ videoteka, sedmično ažuriranje</p>
+            </div>
+        </div>
+    </section>
 
-  <!-- Teaser za aplikaciju -->
-  <section>
-    <h2>📱 Nova opcija – Naša aplikacija</h2>
-    <p>
-      Sada MaxViem Paket možete gledati i putem naše aplikacije na Android uređajima, a uskoro i na iOS i Smart TV uređajima.
-    </p>
-    <a href="aplikacija.html" class="btn">➡️ Više o aplikaciji</a>
-  </section>
+    <!-- Akcije -->
+    <section id="akcije">
+        <h2>Akcije</h2>
+        <p>Test 24h</p>
+        <p>Pro Paket 12+12 mjeseci: <strong>180€</strong> <span style="text-decoration: line-through;">260€</span></p>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 MaxViem Paket | Kontakt: 
-      <a href="https://wa.me/381694007480">WhatsApp</a> | 
-      Email: nkplus22@gmail.com
-    </p>
-  </footer>
+    <!-- O nama -->
+    <section id="o-nama">
+        <h2>O nama</h2>
+        <p>MaxViem pruža kvalitetnu IPTV uslugu sa bogatim sadržajem, preko 7 godina iskustva i tisućama zadovoljnih korisnika.</p>
+    </section>
 
-  <!-- particles.js -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-  <script>
-    particlesJS("particles-js", {
-      "particles": {
-        "number": { "value": 60 },
-        "color": { "value": "#ff1a1a" },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.5 },
-        "size": { "value": 3 },
-        "line_linked": { "enable": true, "color": "#ff1a1a" },
-        "move": { "enable": true, "speed": 2 }
-      },
-      "interactivity": {
-        "events": {
-          "onhover": { "enable": true, "mode": "repulse" },
-          "onclick": { "enable": true, "mode": "push" }
-        },
-        "modes": {
-          "repulse": { "distance": 100 },
-          "push": { "particles_nb": 4 }
-        }
-      },
-      "retina_detect": true
-    });
-  </script>
+    <!-- Kontakt -->
+    <section id="kontakt">
+        <h2>Kontakt</h2>
+        <p>WhatsApp: <a href="https://wa.me/381694007480">+381 69 4007480</a></p>
+    </section>
 
-  <script>
-    function openNav() {
-      document.getElementById("myNav").style.width = "100%";
+    <!-- Plaćanje -->
+    <section id="placanje">
+        <h2>Plaćanje</h2>
+        <div class="pay-options">
+            <div class="pay-card">
+                <p>PayPal</p>
+                <a href="https://wa.me/381694007480" class="btn">Kontakt WhatsApp</a>
+            </div>
+            <div class="pay-card">
+                <p>Bankovni Transfer</p>
+                <a href="https://wa.me/381694007480" class="btn">Kontakt WhatsApp</a>
+            </div>
+            <div class="pay-card">
+                <p>Crypto</p>
+                <a href="https://wa.me/381694007480" class="btn">Kontakt WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Postani dio tima -->
+    <section id="tim">
+        <h2>Postani dio tima</h2>
+        <p>Pridruži se MaxViem timu i uživaj u odličnim uslovima rada, fleksibilnom rasporedu i podršci. Nudimo atraktivne benefite i priliku za profesionalni razvoj.</p>
+        <a href="https://wa.me/381694007480" class="btn">Kontakt WhatsApp</a>
+    </section>
+
+    <!-- Komentari -->
+    <section id="komentari">
+        <h2>Korisnički komentari</h2>
+        <div id="comments">
+            <!-- 30 random komentara -->
+        </div>
+    </section>
+</main>
+
+<script src="particles.min.js"></script>
+<script src="particles-config.js"></script>
+<script src="comments.js"></script>
+<script>
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+    hamburger.addEventListener('click', () => nav.classList.toggle('active'));
+
+    // Counters
+    function animateCounter(id, target, duration) {
+        let start = 0;
+        const increment = target / (duration / 20);
+        const element = document.getElementById(id);
+        const counter = setInterval(() => {
+            start += increment;
+            if(start >= target){
+                element.innerText = target;
+                clearInterval(counter);
+            } else {
+                element.innerText = Math.floor(start);
+            }
+        }, 20);
     }
-    function closeNav() {
-      document.getElementById("myNav").style.width = "0%";
-    }
-  </script>
 
+    animateCounter("users", 1200, 2000);
+    animateCounter("years", 7, 1500);
+    animateCounter("videos", 50000, 2500);
+</script>
 </body>
 </html>
