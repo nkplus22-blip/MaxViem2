@@ -4,38 +4,237 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MaxViem - Kontakt</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
   <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f4f4; }
-    header { background:#111; color:#fff; text-align:center; padding:20px; }
-    main { max-width:900px; margin:20px auto; padding:0 20px; }
-    .content-section { background:#fff; border-radius:10px; padding:20px; margin-bottom:20px; box-shadow:0 3px 10px rgba(0,0,0,0.1); }
-    h2 { color:#333; margin-top:0; }
-    p { line-height:1.6; color:#555; }
-    .whatsapp-btn { display:inline-block; background:#25D366; color:#fff; text-decoration:none; padding:12px 25px; border-radius:50px; font-weight:bold; margin-top:15px; transition:0.2s; }
-    .whatsapp-btn:hover { background:#1DA851; }
+    :root {
+      --primary-color: #e60012;
+      --secondary-color: #ffffff;
+      --background-color: #000000;
+      --text-color: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
+
+    nav {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+
+    nav .logo {
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: var(--secondary-color);
+      margin: 4px 0;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--primary-color);
+        position: absolute;
+        top: 60px;
+        left: 0;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    .hero {
+      background-image: url('assets/images/tech-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      padding: 150px 20px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.5em;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .content-section {
+      background: var(--secondary-color);
+      color: #000;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .content-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      background-color: #25D366;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-weight: bold;
+      margin-top: 15px;
+      transition: background 0.2s;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #1DA851;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>MaxViem - Kontakt</h1>
-</header>
+  <!-- Particles pozadina -->
+  <div id="particles-js"></div>
 
-<main>
-  <div class="content-section">
-    <h2>Kontakt informacije</h2>
-    <p>Email: info@maxviem.com</p>
-    <p>WhatsApp: +381 69 4007480</p>
-    <p>Radno vrijeme: 09:00 - 21:00</p>
-    <a class="whatsapp-btn" href="https://wa.me/381694007480" target="_blank">Kontakt WhatsApp</a>
-  </div>
+  <!-- Navigacija -->
+  <nav>
+    <div class="logo">MaxViem</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="onama.html">O nama</a></li>
+      <li><a href="akcije.html">Akcije</a></li>
+      <li><a href="cijene.html">Cijene</a></li>
+      <li><a href="komentari.html">Komentari</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="placanje.html">Plaćanje</a></li>
+      <li><a href="nasaaplikacija.html">Naša aplikacija</a></li>
+      <li><a href="postani.html">Postani član</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+    </ul>
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </nav>
 
-  <div class="content-section">
-    <h2>Imate pitanje?</h2>
-    <p>Slobodno nas kontaktirajte preko WhatsApp-a i dobit ćete brzi odgovor na sve vaše upite.</p>
-    <a class="whatsapp-btn" href="https://wa.me/381694007480" target="_blank">Kontakt WhatsApp</a>
-  </div>
-</main>
+  <!-- Hero sekcija -->
+  <section class="hero">
+    <h1>Kontakt</h1>
+    <p>Slobodno nas kontaktirajte</p>
+  </section>
+
+  <main>
+    <div class="content-section">
+      <h2>Kontakt informacije</h2>
+      <p>Email: info@maxviem.com</p>
+      <p>WhatsApp: +381 69 4007480</p>
+      <p>Radno vrijeme: 09:00 - 21:00</p>
+      <a class="whatsapp-btn" href="https://wa.me/381694007480" target="_blank">Kontakt WhatsApp</a>
+    </div>
+
+    <div class="content-section">
+      <h2>Imate pitanje?</h2>
+      <p>Slobodno nas kontaktirajte preko WhatsApp-a i dobit ćete brzi odgovor na sve vaše upite.</p>
+      <a class="whatsapp-btn" href="https://wa.me/381694007480" target="_blank">Kontakt WhatsApp</a>
+    </div>
+  </main>
+
+  <!-- Skripte -->
+  <script src="assets/js/particles.min.js"></script>
+  <script>
+    particlesJS.load('particles-js', 'particles.json', function() {
+      console.log('Particles loaded.');
+    });
+  </script>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('nav ul');
+    hamburger.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+  </script>
+
+  <script>
+    const sections = document.querySelectorAll('.content-section');
+    window.addEventListener('scroll', () => {
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if(top < windowHeight - 50){ section.classList.add('visible'); }
+      });
+    });
+  </script>
 
 </body>
 </html>
