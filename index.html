@@ -1,149 +1,299 @@
 <!DOCTYPE html>
-<html lang="hr">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MaxViem - Početna</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MaxViem</title>
+
+  <!-- Stilovi -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    :root {
+      --primary-color: #e60012;
+      --secondary-color: #ffffff;
+      --background-color: #000000;
+      --text-color: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+    }
+
+    /* Navigacija */
+    nav {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 15px 20px;
+      position: relative;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: var(--secondary-color);
+      margin: 4px 0;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--primary-color);
+        position: absolute;
+        top: 60px;
+        left: 0;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Hero sekcija */
+    .hero {
+      background-image: url('assets/images/tech-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      color: var(--secondary-color);
+      text-align: center;
+      padding: 150px 20px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.5em;
+    }
+
+    /* Kartice */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 50px 0;
+    }
+
+    .card {
+      background-color: var(--secondary-color);
+      color: #000;
+      border: 2px solid var(--primary-color);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px;
+      text-align: center;
+      flex: 1 1 250px;
+      max-width: 300px;
+      position: relative;
+      z-index: 5;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card h3 {
+      color: var(--primary-color);
+    }
+
+    /* Animirani brojači */
+    .counters {
+      display: flex;
+      justify-content: center;
+      margin: 50px 0;
+    }
+
+    .counter {
+      font-size: 3em;
+      font-weight: bold;
+      margin: 0 40px;
+    }
+
+    /* Fade-in efekti */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Particles */
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+  </style>
 </head>
 <body>
 
-<!-- Particle Background -->
-<div id="particles-js"></div>
+  <!-- Particles pozadina -->
+  <div id="particles-js"></div>
 
-<header>
-    <a href="#" class="logo">MaxViem</a>
-    <div class="hamburger" id="hamburger">
-        <div></div><div></div><div></div>
+  <!-- Navigacija -->
+  <nav>
+    <div class="logo">MaxViem</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="onama.html">O nama</a></li>
+      <li><a href="akcije.html">Akcije</a></li>
+      <li><a href="cijene.html">Cijene</a></li>
+      <li><a href="komentari.html">Komentari</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="placanje.html">Plaćanje</a></li>
+      <li><a href="nasaaplikacija.html">Naša aplikacija</a></li>
+      <li><a href="postani.html">Postani član</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+    </ul>
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
-    <nav id="nav">
-        <a href="#cijene">Cijene</a>
-        <a href="#akcije">Akcije</a>
-        <a href="#o-nama">O nama</a>
-        <a href="#kontakt">Kontakt</a>
-        <a href="#placanje">Plaćanje</a>
-        <a href="#tim">Postani dio tima</a>
-        <a href="#komentari">Komentari</a>
-    </nav>
-</header>
+  </nav>
 
-<main>
-    <section class="hero">
-        <h1>Dobrodošli u MaxViem</h1>
-        <p>Najbolja IPTV platforma sa preko 50.000 videotekh i tisućama live kanala.</p>
-        <a href="https://wa.me/381694007480" class="btn">Kontakt WhatsApp</a>
+  <!-- Hero sekcija -->
+  <section class="hero fade-in">
+    <h1>Welcome to MaxViem</h1>
+    <p>The new tech experience in red & white</p>
+  </section>
 
-        <div class="counters">
-            <div class="counter"><span id="users">0</span>Korisnika</div>
-            <div class="counter"><span id="years">0</span>Godina rada</div>
-            <div class="counter"><span id="videos">0</span>Videoteka</div>
-        </div>
-    </section>
+  <!-- Kartice -->
+  <section class="cards fade-in">
+    <div class="card">
+      <h3>Feature 1</h3>
+      <p>Some description here.</p>
+    </div>
+    <div class="card">
+      <h3>Feature 2</h3>
+      <p>Some description here.</p>
+    </div>
+    <div class="card">
+      <h3>Feature 3</h3>
+      <p>Some description here.</p>
+    </div>
+  </section>
 
-    <!-- Cijene -->
-    <section id="cijene">
-        <h2>Cijene</h2>
-        <div class="price-cards">
-            <div class="card">
-                <h3>Basic Paket</h3>
-                <p>7€ / mjesec</p>
-                <p>750 kanala i 9.500 videoteka</p>
-            </div>
-            <div class="card">
-                <h3>Medium Paket</h3>
-                <p>10€ / mjesec</p>
-                <p>1350 kanala i 21.000 videoteka, ažuriranje svakih 60 dana</p>
-            </div>
-            <div class="card">
-                <h3>Pro Paket</h3>
-                <p>13€ / mjesec</p>
-                <p>2300 live kanala, 50.000+ videoteka, sedmično ažuriranje</p>
-            </div>
-        </div>
-    </section>
+  <!-- Animirani brojači -->
+  <section class="counters fade-in">
+    <div class="counter" data-target="1500">0</div>
+    <div class="counter" data-target="320">0</div>
+    <div class="counter" data-target="75">0</div>
+  </section>
 
-    <!-- Akcije -->
-    <section id="akcije">
-        <h2>Akcije</h2>
-        <p>Test 24h</p>
-        <p>Pro Paket 12+12 mjeseci: <strong>180€</strong> <span style="text-decoration: line-through;">260€</span></p>
-    </section>
+  <!-- Skripte -->
+  <script src="assets/js/particles.min.js"></script>
 
-    <!-- O nama -->
-    <section id="o-nama">
-        <h2>O nama</h2>
-        <p>MaxViem pruža kvalitetnu IPTV uslugu sa bogatim sadržajem, preko 7 godina iskustva i tisućama zadovoljnih korisnika.</p>
-    </section>
+  <!-- Napredna particles.js inicijalizacija -->
+  <script>
+    particlesJS.load('particles-js', 'particles.json', function() {
+      console.log('Advanced tech particles loaded.');
+    });
+  </script>
 
-    <!-- Kontakt -->
-    <section id="kontakt">
-        <h2>Kontakt</h2>
-        <p>WhatsApp: <a href="https://wa.me/381694007480">+381 69 4007480</a></p>
-    </section>
+  <!-- Hamburger menu -->
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('nav ul');
 
-    <!-- Plaćanje -->
-    <section id="placanje">
-        <h2>Plaćanje</h2>
-        <div class="pay-options">
-            <div class="pay-card">
-                <p>PayPal</p>
-                <a href="https://wa.me/381694007480" class="btn">Kontakt WhatsApp</a>
-            </div>
-            <div class="pay-card">
-                <p>Bankovni Transfer</p>
-                <a href="https://wa.me/381694007480" class="btn">Kontakt WhatsApp</a>
-            </div>
-            <div class="pay-card">
-                <p>Crypto</p>
-                <a href="https://wa.me/381694007480" class="btn">Kontakt WhatsApp</a>
-            </div>
-        </div>
-    </section>
+    hamburger.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  </script>
 
-    <!-- Postani dio tima -->
-    <section id="tim">
-        <h2>Postani dio tima</h2>
-        <p>Pridruži se MaxViem timu i uživaj u odličnim uslovima rada, fleksibilnom rasporedu i podršci. Nudimo atraktivne benefite i priliku za profesionalni razvoj.</p>
-        <a href="https://wa.me/381694007480" class="btn">Kontakt WhatsApp</a>
-    </section>
+  <!-- Fade-in efekti pri scrollu -->
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
 
-    <!-- Komentari -->
-    <section id="komentari">
-        <h2>Korisnički komentari</h2>
-        <div id="comments">
-            <!-- 30 random komentara -->
-        </div>
-    </section>
-</main>
+    window.addEventListener('scroll', () => {
+      faders.forEach(fader => {
+        const top = fader.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if(top < windowHeight - 50){
+          fader.classList.add('visible');
+        }
+      });
+    });
+  </script>
 
-<script src="particles.min.js"></script>
-<script src="particles-config.js"></script>
-<script src="comments.js"></script>
-<script>
-    // Hamburger toggle
-    const hamburger = document.getElementById('hamburger');
-    const nav = document.getElementById('nav');
-    hamburger.addEventListener('click', () => nav.classList.toggle('active'));
+  <!-- Animirani brojači -->
+  <script>
+    const counters = document.querySelectorAll('.counter');
 
-    // Counters
-    function animateCounter(id, target, duration) {
-        let start = 0;
-        const increment = target / (duration / 20);
-        const element = document.getElementById(id);
-        const counter = setInterval(() => {
-            start += increment;
-            if(start >= target){
-                element.innerText = target;
-                clearInterval(counter);
-            } else {
-                element.innerText = Math.floor(start);
-            }
-        }, 20);
-    }
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / 200;
 
-    animateCounter("users", 1200, 2000);
-    animateCounter("years", 7, 1500);
-    animateCounter("videos", 50000, 2500);
-</script>
+        if(count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      updateCount();
+    });
+  </script>
+
 </body>
 </html>
