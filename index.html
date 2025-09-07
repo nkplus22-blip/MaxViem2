@@ -11,6 +11,16 @@
       padding: 0;
       background: #fff5f5 url('https://www.transparenttextures.com/patterns/cubes.png');
       color: #333;
+      position: relative;
+      overflow-x: hidden;
+    }
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
     header {
       background: #b30000;
@@ -112,6 +122,9 @@
 </head>
 <body>
 
+  <!-- particles.js pozadina -->
+  <div id="particles-js"></div>
+
   <header>
     <h1>MaxViem Paket</h1>
     <button class="menu-toggle" onclick="openNav()">☰</button>
@@ -166,6 +179,33 @@
       Email: nkplus22@gmail.com
     </p>
   </footer>
+
+  <!-- particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 60 },
+        "color": { "value": "#ff1a1a" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 3 },
+        "line_linked": { "enable": true, "color": "#ff1a1a" },
+        "move": { "enable": true, "speed": 2 }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" },
+          "onclick": { "enable": true, "mode": "push" }
+        },
+        "modes": {
+          "repulse": { "distance": 100 },
+          "push": { "particles_nb": 4 }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
 
   <script>
     function openNav() {
