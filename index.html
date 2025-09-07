@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MaxViem Paket</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff5f5 url('https://www.transparenttextures.com/patterns/cubes.png');
+      color: #333;
+    }
+    header {
+      background: #b30000;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    .menu-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 28px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #fff;
+    }
+    .overlay {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      background-color: rgba(179, 0, 0, 0.95);
+      overflow-x: hidden;
+      transition: 0.4s;
+      padding-top: 60px;
+    }
+    .overlay a {
+      display: block;
+      text-decoration: none;
+      font-size: 1.5em;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      transition: 0.3s;
+    }
+    .overlay a:hover {
+      background: #ff1a1a;
+    }
+    .overlay .closebtn {
+      position: absolute;
+      top: 15px;
+      right: 30px;
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
+    }
+    .hero {
+      background: #ffe6e6;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .hero h1 {
+      font-size: 2.5em;
+      color: #b30000;
+    }
+    .hero p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    section h2 {
+      color: #b30000;
+      font-size: 1.8em;
+      margin-bottom: 15px;
+    }
+    .btn {
+      background: #b30000;
+      color: #fff;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      display: inline-block;
+      margin-top: 15px;
+    }
+    .btn:hover {
+      background: #ff1a1a;
+    }
+    footer {
+      background: #b30000;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+    footer a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>MaxViem Paket</h1>
+    <button class="menu-toggle" onclick="openNav()">☰</button>
+  </header>
+
+  <!-- overlay meni -->
+  <div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="index.html">Početna</a>
+    <a href="cjenovnik.html">Cijene i akcije</a>
+    <a href="top15.html">Top 15</a>
+    <a href="komentari.html">Komentari</a>
+    <a href="tim.html">Postani dio tima</a>
+    <a href="onama.html">O nama</a>
+    <a href="kontakt.html">Kontakt</a>
+    <a href="placanje.html">Plaćanje</a>
+    <a href="kakodagledas.html">Kako da gledaš</a>
+    <a href="aplikacija.html">Naša aplikacija</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Dobrodošli u MaxViem Paket</h1>
+    <p>Najbolji izbor IPTV televizije za cijelu porodicu.</p>
+  </section>
+
+  <!-- Opis internet televizije -->
+  <section>
+    <h2>Šta je internet televizija?</h2>
+    <p>
+      Internet televizija (IPTV) omogućava gledanje TV kanala putem interneta, bez potrebe za klasičnim kablovskim ili satelitskim prijemnikom. 
+      Sve što vam je potrebno jeste internet konekcija i uređaj poput Smart TV-a, računara, TV Box-a, mobilnog telefona ili tableta.
+    </p>
+    <p>
+      Prednosti IPTV usluge su brojne: gledanje kanala bilo gdje u svijetu, kvalitetna HD i 4K slika, veliki izbor domaćih i stranih kanala, kao i mogućnost gledanja na više uređaja.
+      Sve više ljudi prelazi na internet televiziju jer nudi fleksibilnost i bolju cijenu u poređenju sa tradicionalnim operaterima.
+    </p>
+  </section>
+
+  <!-- Teaser za aplikaciju -->
+  <section>
+    <h2>📱 Nova opcija – Naša aplikacija</h2>
+    <p>
+      Sada MaxViem Paket možete gledati i putem naše aplikacije na Android uređajima, a uskoro i na iOS i Smart TV uređajima.
+    </p>
+    <a href="aplikacija.html" class="btn">➡️ Više o aplikaciji</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MaxViem Paket | Kontakt: 
+      <a href="https://wa.me/381694007480">WhatsApp</a> | 
+      Email: nkplus22@gmail.com
+    </p>
+  </footer>
+
+  <script>
+    function openNav() {
+      document.getElementById("myNav").style.width = "100%";
+    }
+    function closeNav() {
+      document.getElementById("myNav").style.width = "0%";
+    }
+  </script>
+
+</body>
+</html>
