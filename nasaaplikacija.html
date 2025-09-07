@@ -1,177 +1,258 @@
 <!DOCTYPE html>
-<html lang="bs">
+<html lang="hr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MaxViem Paket | Naša aplikacija</title>
+  <title>MaxViem - Naša aplikacija</title>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
   <style>
+    :root {
+      --primary-color: #e60012;
+      --secondary-color: #ffffff;
+      --background-color: #000000;
+      --text-color: #ffffff;
+    }
+
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #fff5f5 url('https://www.transparenttextures.com/patterns/cubes.png');
-      color: #333;
-    }
-    header {
-      background: #b30000;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-      position: relative;
-    }
-    .menu-toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 28px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      color: #fff;
-    }
-    .overlay {
-      height: 100%;
-      width: 0;
-      position: fixed;
-      z-index: 1000;
-      top: 0;
-      left: 0;
-      background-color: rgba(179, 0, 0, 0.95);
+      font-family: Arial, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
       overflow-x: hidden;
-      transition: 0.4s;
-      padding-top: 60px;
     }
-    .overlay a {
-      display: block;
-      text-decoration: none;
-      font-size: 1.5em;
-      color: #fff;
-      padding: 15px;
-      text-align: center;
-      transition: 0.3s;
-    }
-    .overlay a:hover {
-      background: #ff1a1a;
-    }
-    .overlay .closebtn {
-      position: absolute;
-      top: 15px;
-      right: 30px;
-      font-size: 40px;
-      color: #fff;
-      cursor: pointer;
-    }
-    .app-hero {
-      background: #ffe6e6;
-      text-align: center;
-      padding: 50px 20px;
-    }
-    .app-hero h1 {
-      color: #b30000;
-      font-size: 2.2em;
-    }
-    .download-container {
+
+    nav {
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      padding: 15px 20px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
+      position: relative;
+      z-index: 10;
     }
-    .download-btn {
-      background: #b30000;
-      color: #fff;
-      padding: 15px 30px;
-      font-size: 1.2em;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+
+    nav .logo {
+      font-weight: bold;
+      font-size: 1.5em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin-left: 20px;
+    }
+
+    nav ul li a {
+      color: var(--secondary-color);
       text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: var(--secondary-color);
+      margin: 4px 0;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--primary-color);
+        position: absolute;
+        top: 60px;
+        left: 0;
+      }
+      nav ul.active {
+        display: flex;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    .hero {
+      background-image: url('assets/images/tech-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      padding: 100px 20px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .hero h1 {
+      font-size: 2.5em;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.2em;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .content-section {
+      background: var(--secondary-color);
+      color: #000;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .content-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .download-btn {
       display: inline-block;
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
+      text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-weight: bold;
+      margin-top: 15px;
       transition: background 0.3s;
     }
+
     .download-btn:hover {
-      background: #ff1a1a;
+      background-color: #ff1a1a;
     }
-    .platform-block {
-      margin: 30px auto;
-      padding: 20px;
-      background: #fff;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 15px;
-      max-width: 500px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
-    .platform-block img {
-      width: 48px;
-      height: 48px;
-    }
-    .qr-code {
-      margin-top: 25px;
-    }
+
     footer {
-      background: #b30000;
-      color: #fff;
+      background-color: var(--primary-color);
+      color: var(--secondary-color);
       text-align: center;
       padding: 15px;
       margin-top: 40px;
     }
+
     footer a {
       color: #ffcc00;
       text-decoration: none;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .platform-block {
+      margin: 20px 0;
+      padding: 15px;
+      background: #fff;
+      color: #000;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .platform-block img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .qr-code img {
+      width: 150px;
+      height: 150px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Naša aplikacija</h1>
-    <button class="menu-toggle" onclick="openNav()">☰</button>
-  </header>
+  <!-- Particles pozadina -->
+  <div id="particles-js"></div>
 
-  <!-- overlay meni -->
-  <div id="myNav" class="overlay">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-    <a href="index.html">Početna</a>
-    <a href="cjenovnik.html">Cijene i akcije</a>
-    <a href="top15.html">Top 15</a>
-    <a href="komentari.html">Komentari</a>
-    <a href="tim.html">Postani dio tima</a>
-    <a href="onama.html">O nama</a>
-    <a href="kontakt.html">Kontakt</a>
-    <a href="placanje.html">Plaćanje</a>
-    <a href="kakodagledas.html">Kako da gledaš</a>
-    <a href="aplikacija.html">Naša aplikacija</a>
-  </div>
-
-  <section class="app-hero">
-    <h1>📱 Gledajte MaxViem Paket i preko aplikacije</h1>
-    <p>Preuzmite našu zvaničnu aplikaciju i gledajte omiljene kanale direktno na svom telefonu, tabletu ili TV Box-u.</p>
-
-    <div class="download-container">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Android_robot.svg" alt="Android logo" width="40">
-      <a class="download-btn" href="https://apkpure.com/geniuses-player-pro/com.geniusesplayerpro.geniusesplayerproiptvbox/download">
-        ⬇️ Preuzmi Android aplikaciju
-      </a>
+  <!-- Navigacija -->
+  <nav>
+    <div class="logo">MaxViem</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="onama.html">O nama</a></li>
+      <li><a href="akcije.html">Akcije</a></li>
+      <li><a href="cijene.html">Cijene</a></li>
+      <li><a href="komentari.html">Komentari</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+      <li><a href="placanje.html">Plaćanje</a></li>
+      <li><a href="nasaaplikacija.html">Naša aplikacija</a></li>
+      <li><a href="postani.html">Postani član</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+    </ul>
+    <div class="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
+  </nav>
 
-    <div class="qr-code">
-      <p>👉 Ili skenirajte QR kod za brzo preuzimanje:</p>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://apkpure.com/geniuses-player-pro/com.geniusesplayerpro.geniusesplayerproiptvbox/download" alt="QR kod aplikacije">
-    </div>
-
-    <div class="platform-block">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple logo">
-      <p>🍏 iOS verzija aplikacije uskoro dostupna za iPhone i iPad</p>
-    </div>
-
-    <div class="platform-block">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Smart_TV_icon.png" alt="Smart TV">
-      <p>📺 Uskoro dostupna i na Smart TV uređajima</p>
-    </div>
+  <!-- Hero sekcija -->
+  <section class="hero">
+    <h1>📱 Naša aplikacija</h1>
+    <p>Gledajte MaxViem Paket direktno na svom telefonu, tabletu ili TV Box-u.</p>
   </section>
+
+  <main>
+    <div class="content-section">
+      <h2>Preuzmite aplikaciju</h2>
+      <div class="download-btn">
+        <a href="https://apkpure.com/geniuses-player-pro/com.geniusesplayerpro.geniusesplayerproiptvbox/download" target="_blank" class="download-btn">⬇️ Android APK</a>
+      </div>
+      <div class="qr-code">
+        <p>👉 Skenirajte QR kod:</p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https://apkpure.com/geniuses-player-pro/com.geniusesplayerpro.geniusesplayerproiptvbox/download" alt="QR kod aplikacije">
+      </div>
+    </div>
+
+    <div class="content-section platform-block">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple logo">
+      <p>🍏 iOS verzija uskoro dostupna</p>
+    </div>
+
+    <div class="content-section platform-block">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Smart_TV_icon.png" alt="Smart TV">
+      <p>📺 Uskoro dostupno i na Smart TV uređajima</p>
+    </div>
+  </main>
 
   <footer>
     <p>&copy; 2025 MaxViem Paket | Kontakt: 
@@ -180,14 +261,24 @@
     </p>
   </footer>
 
+  <!-- Skripte -->
+  <script src="assets/js/particles.min.js"></script>
   <script>
-    function openNav() {
-      document.getElementById("myNav").style.width = "100%";
-    }
-    function closeNav() {
-      document.getElementById("myNav").style.width = "0%";
-    }
+    particlesJS.load('particles-js', 'particles.json', function() {
+      console.log('Particles loaded.');
+    });
   </script>
 
-</body>
-</html>
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('nav ul');
+    hamburger.addEventListener('click', () => { navMenu.classList.toggle('active'); });
+  </script>
+
+  <script>
+    const sections = document.querySelectorAll('.content-section');
+    window.addEventListener('scroll', () => {
+      sections.forEach(section => {
+        const top = section.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if(top < windowHeight - 50){ section.classList.add('visible'); }
